@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 function useFetch(playlistId) {
     const [playlist, setPlaylist] = useState(null)
@@ -7,11 +8,11 @@ function useFetch(playlistId) {
     useEffect(()=> {
         axios.get(`https://cdn.jwplayer.com/v2/playlists/${playlistId}`)
         .then((response) => {
-            console.log(response.data)
-            setPlaylist(response.data)
+            console.log(response.data.playlist)
+            setPlaylist(response.data.playlist)
         })
         .catch((e) => setError(e))
-    },[url])
+    },[playlistId])
 
   return { playlist, error }
 }
