@@ -17,9 +17,9 @@ function Content() {
         )
     })
   return (
-    <>
+    <div className="main-content">
         {playlistMap}
-    </>
+    </div>
   )
 }
 
