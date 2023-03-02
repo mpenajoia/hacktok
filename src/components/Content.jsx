@@ -12,7 +12,10 @@ function Content() {
                 library="https://cdn.jwplayer.com/libraries/7vZSn4fo.js"
                 playlist={`https://cdn.jwplayer.com/v2/media/${item['mediaid']}`}
                 config={{
-                    "width": "50%"
+                    "width": "50%",
+                    "autoPause": {
+                        "viewability": true,
+                    }
                 }}
             />            
         )
