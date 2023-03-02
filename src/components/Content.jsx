@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from 'react';
 import JWPlayer from '@jwplayer/jwplayer-react';
 import { PlaylistContext } from '../context/PlaylistContext';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 function Content() {
     const { playlist, loading, error, currentPlaylistId } = useContext(PlaylistContext)
@@ -30,15 +31,24 @@ function Content() {
                    
         )
     })
+    const moreItems = () => {
+        setPlaylistArray([...playlistArray, ...playlistArray])
+    }
 
     if(error) return <p>{error.message} using Playlist Id: {currentPlaylistId}</p>
     if(loading) return <p>Loading...</p>
 
   return (
     <div className="content-wrapper">
-    <div className="content-main">
-        {playlistMap}
-    </div>
+        <InfiniteScroll
+            dataLength={playlistArray ? playlistArray.length : 10}
+            next={moreItems}
+            hasMore={true}
+        >
+        <div className="content-main">
+                {playlistMap}
+        </div>
+        </InfiniteScroll>
     </div>
   )
 }
