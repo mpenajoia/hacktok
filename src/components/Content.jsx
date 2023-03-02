@@ -10,7 +10,6 @@ function Content() {
 
     useEffect(()=> {
         setPlaylistArray(playlist)
-        console.log(playlistArray)
     },[playlist])
 
     const playlistMap = playlistArray?.map((item, key) => {

@@ -3,7 +3,6 @@ import axios from 'axios';
 
 function useFetch(playlistId) {
     const [playlist, setPlaylist] = useState(null)
-    console.log('in useFetch playist is: ', playlist)
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(false)
 
