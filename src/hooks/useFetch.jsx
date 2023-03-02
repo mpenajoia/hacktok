@@ -7,10 +7,7 @@ function useFetch(playlistId) {
 
     useEffect(()=> {
         axios.get(`https://cdn.jwplayer.com/v2/playlists/${playlistId}`)
-        .then((response) => {
-            console.log(response.data.playlist)
-            setPlaylist(response.data.playlist)
-        })
+        .then(response => setPlaylist(response.data.playlist))
         .catch((e) => setError(e))
     },[playlistId])
 
