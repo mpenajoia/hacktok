@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 function useFetch(playlistId) {
     const [playlist, setPlaylist] = useState(null)
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(false)
-
+    
     useEffect(()=> {
       setLoading(true)
       axios.get(`https://cdn.jwplayer.com/v2/playlists/${playlistId}`)
@@ -13,7 +13,6 @@ function useFetch(playlistId) {
       .catch((e) => setError(e))
       .finally(setLoading(false))
     },[playlistId])
-
   return { playlist, error, loading }
 }
 

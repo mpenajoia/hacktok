@@ -12,7 +12,7 @@ function Head() {
     const handleSubmit = (e) => {
         e.preventDefault()
         setCurrentPlaylistId(playlistId)
-        setPlaylistId('')
+        // setPlaylistId('')
     }
   return (
     <div className="head">
