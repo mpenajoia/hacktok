@@ -24,10 +24,11 @@ code {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 4em;
+  height: 6em;
   position: fixed;
   z-index: 5;
   background: rgba(255, 255, 255);
+  padding: 10px;
 }
 
 .head-content {
@@ -58,9 +59,9 @@ code {
 }
 
 .head-content img {
-  height: 50px;
+  height: 60px;
   position: fixed;
-  left: 5em;
+  left: 7em;
 }
 
 .main {
