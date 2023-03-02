@@ -5,7 +5,6 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 
 function Content() {
     const { playlist, loading, error, currentPlaylistId } = useContext(PlaylistContext)
-    console.log(playlist)
     const [ playlistArray , setPlaylistArray ] = useState(playlist)
 
 
@@ -40,6 +39,7 @@ function Content() {
 
   return (
     <div className="content-wrapper">
+        <h3>Current Playlist ID: {currentPlaylistId}</h3>
         <InfiniteScroll
             dataLength={playlistArray ? playlistArray.length : 10}
             next={moreItems}

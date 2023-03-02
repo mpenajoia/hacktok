@@ -3,7 +3,7 @@ import jwlogo from '../img/jwlogo.png'
 import { PlaylistContext } from '../context/PlaylistContext'
 
 function Head() {
-    const { setCurrentPlaylistId } = useContext(PlaylistContext)
+    const { setPlaylist, setCurrentPlaylistId } = useContext(PlaylistContext)
     const [playlistId, setPlaylistId] = useState('')
     const handlePlaylistId = (e) => {
         e.preventDefault()
@@ -11,8 +11,9 @@ function Head() {
     }
     const handleSubmit = (e) => {
         e.preventDefault()
+        setPlaylist(null)
         setCurrentPlaylistId(playlistId)
-        // setPlaylistId('')
+        setPlaylistId('')
     }
   return (
     <div className="head">

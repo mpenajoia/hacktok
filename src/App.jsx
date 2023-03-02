@@ -6,10 +6,10 @@ import useFetch from "./hooks/useFetch";
 
 function App() {
   const [currentPlaylistId, setCurrentPlaylistId] = useState("lDF3B0qj")
-  const { playlist, loading, error } = useFetch(currentPlaylistId)
+  const { playlist, setPlaylist, loading, error } = useFetch(currentPlaylistId)
 
   return (
-    <PlaylistContext.Provider value={{ playlist, loading, error, currentPlaylistId, setCurrentPlaylistId }}>
+    <PlaylistContext.Provider value={{ playlist, setPlaylist, loading, error, currentPlaylistId, setCurrentPlaylistId }}>
       <div className="App">
         <Head />
         <div className="main">
