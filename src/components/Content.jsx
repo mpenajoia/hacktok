@@ -1,9 +1,9 @@
-import React from 'react';
+import { useContext } from 'react';
 import JWPlayer from '@jwplayer/jwplayer-react';
-import useFetch from '../hooks/useFetch';
+import { PlaylistContext } from '../context/PlaylistContext';
 
 function Content() {
-    const {playlist, error} = useFetch('wZDkcC5x')
+    const { playlist, loading, error, currentPlaylistId } = useContext(PlaylistContext)
 
     const playlistMap = playlist?.map((item, key) => {
         return (            
@@ -20,6 +20,9 @@ function Content() {
             />            
         )
     })
+
+    if(error) return <p>{error.message} using Playlist Id: {currentPlaylistId}</p>
+    if(loading) return <p>Loading...</p>
 
   return (
     <div className="main-content">

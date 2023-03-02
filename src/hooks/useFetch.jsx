@@ -4,14 +4,17 @@ import axios from 'axios';
 function useFetch(playlistId) {
     const [playlist, setPlaylist] = useState(null)
     const [error, setError] = useState(null)
+    const [loading, setLoading] = useState(false)
 
     useEffect(()=> {
-        axios.get(`https://cdn.jwplayer.com/v2/playlists/${playlistId}`)
-        .then(response => setPlaylist(response.data.playlist))
-        .catch((e) => setError(e))
+      setLoading(true)
+      axios.get(`https://cdn.jwplayer.com/v2/playlists/${playlistId}`)
+      .then(response => setPlaylist(response.data.playlist))
+      .catch((e) => setError(e))
+      .finally(setLoading(false))
     },[playlistId])
 
-  return { playlist, error }
+  return { playlist, error, loading }
 }
 
 export default useFetch

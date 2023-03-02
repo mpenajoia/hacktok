@@ -1,17 +1,25 @@
 import { Head, Content, Sidebar } from "./components/index";
+import { PlaylistContext } from "./context/PlaylistContext";
+import { useState } from 'react';
+import useFetch from "./hooks/useFetch";
+
 
 function App() {
+  const [currentPlaylistId, setCurrentPlaylistId] = useState("wZDkcC5x")
+  const { playlist, loading, error } = useFetch(currentPlaylistId)
 
 
   return (
-    <div className="App">
-      <Head />
-      <div className="main">
-        <Sidebar/>
-        <Content />
+    <PlaylistContext.Provider value={{ playlist, loading, error, currentPlaylistId, setCurrentPlaylistId }}>
+      <div className="App">
+        <Head />
+        <div className="main">
+          <Sidebar/>
+          <Content />
 
+        </div>
       </div>
-    </div>
+    </PlaylistContext.Provider>
   );
 }
 
