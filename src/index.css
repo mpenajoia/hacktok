@@ -17,7 +17,6 @@ code {
 
 .App {
   display: flex;
-  flex-direction: column;
 }
 .head {
   width: 100%;
